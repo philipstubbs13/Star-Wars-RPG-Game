@@ -1,0 +1,5 @@
+/* ---- Set width and height of character images------*/
+.character-image {
+	width: 250px;
+	height: 200px;
+}
