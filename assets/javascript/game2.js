@@ -39,15 +39,15 @@ $(document).ready(function() {
 	var currDefender;
 	//Will keep track of turns during combat. Used for calculating player damage.
 	var turnCounter = 1;
-	//Tracks numbr of defeated opponents.
+	//Tracks number of defeated opponents.
 	var killCount = 0;
 
-	//This function will render a character card to the page.
+	//This function will render a character card to the page with character name, image, and health points.
 	//The character rendered and the area they are rendered to.
 	var renderOne = function(character, renderArea, charStatus) {
-		var charDiv = $("<div class='character' data-name='" + character.name + "' >");
+		var charDiv = $("<div class='character' data-name='" + character.name + "' >").addClass("mb-3");
 		var charName = $("<div class='character-name'>").text(character.name);
-		var charImage = $("<img alt='image' class='character-image'>").attr("src", character.imageUrl).addClass("rounded-circle");
+		var charImage = $("<img alt='image' class='character-image'>").attr("src", character.imageUrl).addClass("rounded-circle img-fluid");
 		var charHealth = $("<div class='character-health'>").text(character.health);
 		charDiv.append(charName).append(charImage).append(charHealth);
 		$(renderArea).append(charDiv);
@@ -176,8 +176,6 @@ $(document).ready(function() {
 		//Saving the clicked character's name.
 		var name = $(this).attr("data-name");
 		console.log(name);
-		$("#character-div").hide();
-		$("#show-available-players").hide();
 
 		//If a player character has not yet been chosen...
 		if (!currSelectedCharacter) {
@@ -191,8 +189,9 @@ $(document).ready(function() {
 			}
 
 			console.log(combatants);
-			//Hide the character select div.
-			$("#characters-section").hide();
+			//When user selects a character, hide the character select div.
+			$("#character-div").hide();
+			$("#show-available-players").hide();
 
 			//Then render our selected character and our combatants.
 			renderCharacters(currSelectedCharacter, "#your-player");
