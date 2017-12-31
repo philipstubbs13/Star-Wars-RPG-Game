@@ -176,6 +176,8 @@ $(document).ready(function() {
 		//Saving the clicked character's name.
 		var name = $(this).attr("data-name");
 		console.log(name);
+		$("#character-div").hide();
+		$("#show-available-players").hide();
 
 		//If a player character has not yet been chosen...
 		if (!currSelectedCharacter) {
