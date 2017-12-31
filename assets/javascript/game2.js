@@ -156,7 +156,7 @@ $(document).ready(function() {
 	var restartGame = function(inputEndGame) {
 
 		//When the Restart button is clicked, reload the page.
-		var restart = $("<button>Restart</button>").click(function() {
+		var restart = $("<button>Restart</button>").addClass("btn btn-primary").click(function() {
 			location.reload();
 		});
 
