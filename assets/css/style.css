@@ -2,4 +2,24 @@
 .character-image {
 	width: 250px;
 	height: 200px;
+	padding-right: 16px;
+	padding-left: 16px;
+	margin-top: 3px;
+	margin-bottom: 3px;
+	border-radius: 10px;
+}
+
+.character {
+	display: inline-block;
+	cursor: pointer;
+}
+
+.character-name {
+	text-align: center;
+	color: black;
+}
+
+.character-health {
+	text-align: center;
+	color: black;
 }

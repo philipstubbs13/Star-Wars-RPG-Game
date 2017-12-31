@@ -3,6 +3,8 @@
 //Variable to hold number of available characters
 var numberAvailableCharacters = 4;
 
+var userPlayer;
+
 //Create variable to hold playable characters and character attributes
 var characters = {
 		characterArray: [{
@@ -32,10 +34,10 @@ var characters = {
 			}]
 };
 
- var imageRey = $("<img class='character-image rounded-circle'>").attr("src", characters.characterArray[0].imageUrl).attr("alt",characters.characterArray[0].name);
- var imageVader = $("<img class='character-image rounded-circle'>").attr("src", characters.characterArray[1].imageUrl).attr("alt",characters.characterArray[1].name);
- var imageFinn = $("<img class='character-image rounded-circle'>").attr("src", characters.characterArray[2].imageUrl).attr("alt",characters.characterArray[2].name);
- var imageKylo = $("<img class='character-image rounded-circle'>").attr("src", characters.characterArray[3].imageUrl).attr("alt",characters.characterArray[3].name);
+ var imageRey = $("<img class='character-image rounded-circle'>").attr("src", characters.characterArray[0].imageUrl).attr("alt",characters.characterArray[0].name).attr("id","Rey");
+ var imageVader = $("<img class='character-image rounded-circle'>").attr("src", characters.characterArray[1].imageUrl).attr("alt",characters.characterArray[1].name).attr("id","Vader");
+ var imageFinn = $("<img class='character-image rounded-circle'>").attr("src", characters.characterArray[2].imageUrl).attr("alt",characters.characterArray[2].name).attr("id","Finn");
+ var imageKylo = $("<img class='character-image rounded-circle'>").attr("src", characters.characterArray[3].imageUrl).attr("alt",characters.characterArray[3].name).attr("id","Kylo");
 
 //Functions go here
 function displayPlayerImages() {
@@ -76,83 +78,126 @@ function displayPlayerImages() {
 
 function chooseYourPlayer() {
 	//When user chooses/clicks a player's image....
-	$(".character-image").on("click", function() {
-		userPlayer = $(this).attr("data-name");
-		console.log(userPlayer);
+	if (numberAvailableCharacters === 4) {
+		$("#Rey").on("click", function() {
+			$("#character-div1").empty();
+			numberAvailableCharacters--;
+			userPlayer = $(this).attr("data-name");
+			$("#your-player").append(imageRey).append("<h4>" + "HP: " + characters.characterArray[0].healthPoints + "</h4>");
+			//chooseYourOpponent();
+			return;
+		})
 
-		//Change "Choose your player" to "Choose your opponent" in HTML.
-		$("#show-available-players").html("<h2>" + "Choose your opponent." + "</h2>");
+		$("#Vader").on("click", function() {
+			$("#character-div2").empty();
+			numberAvailableCharacters--;
+			$("#your-player").append(imageVader).append("<h4>" + "HP: " + characters.characterArray[1].healthPoints + "</h4>");
+			userPlayer = $(this).attr("data-name");
+			//chooseYourOpponent();
+			return;
+		})
 
-		if (numberAvailableCharacters === 4) {
+		$("#Finn").on("click", function() {
+			$("#character-div3").empty();
+			numberAvailableCharacters--;
+			$("#your-player").append(imageFinn).append("<h4>" + "HP: " + characters.characterArray[2].healthPoints + "</h4>");
+			userPlayer = $(this).attr("data-name");
+			//chooseYourOpponent();
+			return;
+		})
 
-			//If user chooses Rey...
-			if (userPlayer === characters.characterArray[0].name) {
-				$("#character-div1").empty();
-				numberAvailableCharacters--;
-				$("#your-player").append(imageRey).append("<h4>" + "HP: " + characters.characterArray[0].healthPoints + "</h4>");
-			}
+		$("#Kylo").on("click", function() {
+			$("#character-div4").empty();
+			numberAvailableCharacters--;
+			$("#your-player").append(imageKylo).append("<h4>" + "HP: " + characters.characterArray[3].healthPoints + "</h4>");
+			userPlayer = $(this).attr("data-name");
+			//chooseYourOpponent();
+			return;
+		})
+	}
+}	
 
-			//If user chooses Darth Vader...
-			else if (userPlayer === characters.characterArray[1].name) {
-				$("#character-div2").empty();
-				numberAvailableCharacters--;
-				$("#your-player").append(imageVader).append("<h4>" + "HP: " + characters.characterArray[1].healthPoints + "</h4>");
-				displayYourPlayer();
-			}
-
-			//If user chooses Finn...
-			else if (userPlayer === characters.characterArray[2].name) {
-				$("#character-div3").empty();
-				numberAvailableCharacters--;
-				$("#your-player").append(imageFinn).append("<h4>" + "HP: " + characters.characterArray[2].healthPoints + "</h4>");
-				displayYourPlayer();
-			}
-
-			//If user chooses Kylo Ren...
-			else if (userPlayer === characters.characterArray[3].name) {
-				$("#character-div4").empty();
-				numberAvailableCharacters--;
-				$("#your-player").append(imageKylo).append("<h4>" + "HP: " + characters.characterArray[3].healthPoints + "</h4>");
-				displayYourPlayer();
-			}
-		}
-
-		//Choose opponent.
-		else if (numberAvailableCharacters === 3) {
-			//If user chooses Rey...
-			if (userPlayer === characters.characterArray[0].name) {
-				$("#character-div1").empty();
-				numberAvailableCharacters--;
-				$("#your-opponent").append(imageRey).append("<h4>" + "HP: " + characters.characterArray[0].healthPoints + "</h4>");
-			}
-
-			//If user chooses Darth Vader...
-			else if (userPlayer === characters.characterArray[1].name) {
-				$("#character-div2").empty();
-				numberAvailableCharacters--;
-				$("#your-opponent").append(imageVader).append("<h4>" + "HP: " + characters.characterArray[1].healthPoints + "</h4>");
-				displayYourPlayer();
-			}
-
-			//If user chooses Finn...
-			else if (userPlayer === characters.characterArray[2].name) {
-				$("#character-div3").empty();
-				numberAvailableCharacters--;
-				$("#your-opponent").append(imageFinn).append("<h4>" + "HP: " + characters.characterArray[2].healthPoints + "</h4>");
-				displayYourPlayer();
-			}
-
-			//If user chooses Kylo Ren...
-			else if (userPlayer === characters.characterArray[3].name) {
-				$("#character-div4").empty();
-				numberAvailableCharacters--;
-				$("#your-opponent").append(imageKylo).append("<h4>" + "HP: " + characters.characterArray[3].healthPoints + "</h4>");
-				displayYourPlayer();
-			}
-
-		}
-	})
+function chooseYourOpponent() {
+	
 }
+
+// 	$(".character-image").on("click", function() {
+// 		userPlayer = $(this).attr("data-name");
+// 		console.log(userPlayer);
+
+// 		//Change "Choose your player" to "Choose your opponent" in HTML.
+// 		$("#show-available-players").html("<h2>" + "Choose your opponent." + "</h2>");
+
+// 		if (numberAvailableCharacters === 4) {
+
+// 			//If user chooses Rey...
+// 			if (userPlayer === characters.characterArray[0].name) {
+// 				$("#character-div1").empty();
+// 				numberAvailableCharacters--;
+// 				$("#your-player").append(imageRey).append("<h4>" + "HP: " + characters.characterArray[0].healthPoints + "</h4>");
+// 			}
+
+// 			//If user chooses Darth Vader...
+// 			else if (userPlayer === characters.characterArray[1].name) {
+// 				$("#character-div2").empty();
+// 				numberAvailableCharacters--;
+// 				$("#your-player").append(imageVader).append("<h4>" + "HP: " + characters.characterArray[1].healthPoints + "</h4>");
+// 				displayYourPlayer();
+// 			}
+
+// 			//If user chooses Finn...
+// 			else if (userPlayer === characters.characterArray[2].name) {
+// 				$("#character-div3").empty();
+// 				numberAvailableCharacters--;
+// 				$("#your-player").append(imageFinn).append("<h4>" + "HP: " + characters.characterArray[2].healthPoints + "</h4>");
+// 				displayYourPlayer();
+// 			}
+
+// 			//If user chooses Kylo Ren...
+// 			else if (userPlayer === characters.characterArray[3].name) {
+// 				$("#character-div4").empty();
+// 				numberAvailableCharacters--;
+// 				$("#your-player").append(imageKylo).append("<h4>" + "HP: " + characters.characterArray[3].healthPoints + "</h4>");
+// 				displayYourPlayer();
+// 			}
+// 		}
+
+// 		//Choose opponent.
+// 		else if (numberAvailableCharacters === 3) {
+// 			//If user chooses Rey...
+// 			if (userPlayer === characters.characterArray[0].name) {
+// 				$("#character-div1").empty();
+// 				numberAvailableCharacters--;
+// 				$("#your-opponent").append(imageRey).append("<h4>" + "HP: " + characters.characterArray[0].healthPoints + "</h4>");
+// 			}
+
+// 			//If user chooses Darth Vader...
+// 			else if (userPlayer === characters.characterArray[1].name) {
+// 				$("#character-div2").empty();
+// 				numberAvailableCharacters--;
+// 				$("#your-opponent").append(imageVader).append("<h4>" + "HP: " + characters.characterArray[1].healthPoints + "</h4>");
+// 				displayYourPlayer();
+// 			}
+
+// 			//If user chooses Finn...
+// 			else if (userPlayer === characters.characterArray[2].name) {
+// 				$("#character-div3").empty();
+// 				numberAvailableCharacters--;
+// 				$("#your-opponent").append(imageFinn).append("<h4>" + "HP: " + characters.characterArray[2].healthPoints + "</h4>");
+// 				displayYourPlayer();
+// 			}
+
+// 			//If user chooses Kylo Ren...
+// 			else if (userPlayer === characters.characterArray[3].name) {
+// 				$("#character-div4").empty();
+// 				numberAvailableCharacters--;
+// 				$("#your-opponent").append(imageKylo).append("<h4>" + "HP: " + characters.characterArray[3].healthPoints + "</h4>");
+// 				displayYourPlayer();
+// 			}
+
+// 		}
+// 	})
+// }
 
 function displayYourPlayer() {
 }

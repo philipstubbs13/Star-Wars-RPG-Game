@@ -35,7 +35,7 @@
 				<div class="card mb-4 bg-primary">
 					<div class="card-body main-header">
 					    <h1 class="card-title">Star Wars RPG Game</h1>
-					    <h5 class="card-text">May the force be with you.</h5>
+					    <h5 class="card-text">May the force be with you</h5>
 					</div>
 				</div>
 			</div>
@@ -45,6 +45,7 @@
 			<div class="col-md-12">
 				<div class="card">
 					<div class="card-header bg-primary" id="show-available-players">
+						<h2>Choose your player</h2>
 					</div>
 					<div class="card-body bg-secondary" id="character-div">
 						<div class="row">
@@ -66,10 +67,22 @@
 		</div>
 
 		<div class="row pt-4">
+			<div class="col-md-12">
+				<div class="card">
+					<div class="card-header bg-primary">
+						<h2>Enemies available to attack</h2>
+					</div>
+					<div class="card-body bg-secondary" id="available-to-attack-section">
+					</div>
+				</div>
+			</div>
+		</div>
+
+		<div class="row pt-4">
 			<div class="col-md-4">
 				<div class="card">
 					<div class="card-header bg-primary">
-						<h2>Your player</h2>
+						<h2>The chosen one</h2>
 					</div>
 					<div class="card-body bg-secondary" id="your-player">
 
@@ -77,21 +90,21 @@
 				</div>
 			</div>
 
-			<div class="col-md-4">
+			<div class="col-md-4 pt-4">
 				<div class="card">
 					<div class="card-header bg-primary text-center">
 						<h2>Battlefield</h2>
 
 					</div>
 					<div class="card-body bg-secondary text-center">
-							<button class="btn btn-primary btn-block mb-2">Attack</button>
-							<p>You attacked Rae for 8 damage.</p>
-							<p>Rae attacked you back for 25 damage.</p>
+							<button id="attack-button" class="btn btn-primary btn-block mb-2">Attack</button>
+							<div id="game-message">
+							</div>
 					</div>
 				</div>
 			</div>
 
-			<div class="col-md-4">
+			<div class="pt-4 col-md-4">
 				<div class="card">
 					<div class="card-header bg-primary">
 						<h2>Your opponent</h2>
@@ -105,6 +118,6 @@
 		</div>
 	</div>
 
-<script type="text/javascript" src="assets/javascript/game.js"></script>
+<script type="text/javascript" src="assets/javascript/game2.js"></script>
 </body>
 </html>
