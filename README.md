@@ -27,3 +27,6 @@
 	<li>You win by defeating all of the enemies.</li>
 	<li>However, if your player's health is reduced to zero before you defeat all the enemies, you lose, and the game is over.</li>
 </ul>
+
+## Feedback
+<p>Feel free to send feedback via <a href="https://twitter.com/iamPhilStubbs" target="_blank">Twitter</a>, email (philipstubbs13@gmail.com), or <a href="https://github.com/philipstubbs13/Star-Wars-RPG-Game/issues/" target="_blank">file an issue</a>. Feature requests are always welcome. If you wish to contribute, please send an email with your request to philipstubbs13@gmail.com to discuss.</p>
